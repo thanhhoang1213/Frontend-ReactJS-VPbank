@@ -1,0 +1,11 @@
+.part-content-container {
+    display: flex;
+}
+
+.content-part {
+    width: 95%;
+  }
+  
+  .delete-part-btn {
+    margin: 40px 30px;
+  }

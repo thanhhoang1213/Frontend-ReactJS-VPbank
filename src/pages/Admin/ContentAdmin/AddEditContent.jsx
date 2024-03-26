@@ -11,12 +11,14 @@ import {
   fetchUpdateContent,
 } from "../../../features/content/contentThunk";
 import uploadAPI from "./../../../api/uploadAPI";
+import "./AddEditContent.css";
 
 function AddEditContent() {
   const [state, setState] = useState({
     categoryName: "",
     content: "",
     summarizeContent: "", // Thêm trường summarizeContent
+    contentParts: []
   });
   const dispatch = useDispatch();
   const navigation = useNavigate();
@@ -46,22 +48,26 @@ function AddEditContent() {
 
   const handleOnSubmit = (event) => {
     event.preventDefault();
-
+  
     if (!state.categoryName || !state.content) {
       toast.error("Vui lòng điền tất cả trường!");
       return;
     }
-
+  
     const data = {
       categoryName: state.categoryName,
       content: state.content,
       summarizeContent: state.summarizeContent, // Thêm summarizeContent vào data gửi đi
+      contentParts: state.contentParts.map(part => ({
+        partNumber: part.partNumber,
+        partContent: part.partContent
+      }))
     };
-
+  
     if (dataOne) {
       data.id = dataOne.id;
     }
-
+  
     dispatch(isEditMode ? fetchUpdateContent(data) : fetchAddContent(data)).then((t) => {
       if (t?.payload?.metadata) {
         navigation("/admin/contents");
@@ -96,6 +102,24 @@ function AddEditContent() {
       },
     };
   };
+
+  const handleAddContentPart = () => {
+    const newContentParts = [...state.contentParts];
+    newContentParts.push({ partNumber: newContentParts.length + 1, partContent: "" });
+    setState((prev) => ({ ...prev, contentParts: newContentParts }));
+  };
+
+  const handleContentPartChange = (index, value) => {
+    const newContentParts = [...state.contentParts];
+    newContentParts[index].partContent = value;
+    setState((prev) => ({ ...prev, contentParts: newContentParts }));
+  }
+
+  const handleRemoveContentPart = (index) => {
+    const newContentParts = [ ...state.contentParts ];
+    newContentParts.splice(index, 1);
+    setState((prev) => ({ ...prev, contentParts: newContentParts }));
+  }
 
   function uploadPlugin(editor) {
     editor.plugins.get("FileRepository").createUploadAdapter = (loader) => {
@@ -147,6 +171,38 @@ function AddEditContent() {
           }}
         />
       </div>
+
+      {state.contentParts.map((part, index) => (
+        <div className="part-content-container">
+          <div key={index} className="form-group content-part">
+          <label htmlFor={`partContent${index}`}>Nội dung phần {index + 1}</label>
+          <CKEditor
+            editor={ClassicEditor}
+            data={part.partContent}
+            onChange={(event, editor) => {
+              handleContentPartChange(index, editor.getData());
+            }}
+            config={{
+              extraPlugins: [uploadPlugin],
+            }}
+          />
+        </div>
+        <button 
+        type="button"
+        className="btn btn-danger btn-sm delete-part-btn"
+        onClick={() => handleRemoveContentPart(index)}
+      >Xóa</button>
+        </div>
+       
+        
+      ))}
+
+      <div className="my-4">
+        <button type="button" className="btn btn-primary" onClick={handleAddContentPart}>
+          Thêm ND Nhỏ
+        </button>
+      </div>
+      
 
       <button type="submit" className="btn btn-success">
         {isEditMode ? "Lưu thay đổi" : "Tạo mới"}
