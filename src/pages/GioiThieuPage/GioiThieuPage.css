@@ -1,0 +1,14 @@
+.body-text-container {
+    display: flex;
+}
+
+.body-text {
+    flex: 1;
+}
+
+.image {
+    flex-shrink: 0;
+    /* Ảnh sẽ không bị co lại */
+    margin-left: 20px;
+    /* Khoảng cách giữa ảnh và phần văn bản */
+}

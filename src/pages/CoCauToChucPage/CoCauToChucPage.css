@@ -1,0 +1,98 @@
+.diagram-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-top: 50px;
+}
+
+.diagram-row {
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+  margin-top: 50px;
+}
+
+.diagram-block {
+  border: 1px solid #00b74f;
+  display: flex;
+  flex-direction: column;
+  margin: 7px;
+  position: relative;
+}
+
+.diagram-block::after {
+  content: "";
+  position: absolute;
+  height: 100px;
+  background: #00b74f;
+  width: 2px;
+  z-index: -1;
+  left: 50%;
+  top: -60px;
+}
+
+.diagram-block a h2 {
+  background-color: #00b74f;
+  /* Blue background */
+  color: white;
+  /* White text */
+  padding: 10px;
+  margin: 0;
+  text-align: center;
+  /* margin-top: 5px; */
+}
+
+.diagram-sub-block {
+  background-color: #cccccc;
+  /* Gray background */
+  color: black;
+  /* Black text */
+  padding: 10px;
+  margin: 5px;
+  text-align: center;
+}
+
+.diagram-header {
+  background-color: rgb(79, 88, 148);
+  color: white;
+  padding: 10px;
+  margin-bottom: 20px;
+  font-size: 24px;
+  /* Cỡ chữ lớn hơn */
+  font-weight: bold;
+  /* Chữ đậm */
+  text-align: center;
+  margin-top: 50px;
+}
+
+/* Lines for connecting blocks, you might need to adjust based on layout */
+.line-horizontal {
+  border-top: 2px solid 00b74f;
+  width: 90%;
+  height: 2px;
+  background-color: #00b74f;
+  margin: 0 auto;
+}
+
+.line-vertical {
+  border-left: 2px solid black;
+  height: 20px;
+}
+
+/* ............./* The hidden content div............. */
+.hidden-content h4 {
+  font-weight: normal;
+}
+
+.hidden-content h3,
+.hidden-content h4 {
+  margin-top: 0.4em;
+  margin-bottom: 0.4em;
+  margin: 50px;
+  font-weight: bold;
+}
+
+.hidden-content h4 {
+  font-weight: normal;
+}

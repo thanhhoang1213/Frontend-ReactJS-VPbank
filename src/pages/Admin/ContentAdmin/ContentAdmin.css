@@ -1,0 +1,13 @@
+.truncate {
+    max-width: 500px; /* Đặt chiều rộng tối đa của ô */
+    white-space: nowrap; /* Ngăn chặn việc ngắt dòng */
+    overflow: hidden; /* Ẩn nội dung vượt quá kích thước của ô */
+    text-overflow: ellipsis; /* Hiển thị dấu "..." khi nội dung bị ẩn */
+  }
+
+  .truncate-sumarize {
+    max-width: 300px; /* Đặt chiều rộng tối đa của ô */
+    white-space: nowrap; /* Ngăn chặn việc ngắt dòng */
+    overflow: hidden; /* Ẩn nội dung vượt quá kích thước của ô */
+    text-overflow: ellipsis; /* Hiển thị dấu "..." khi nội dung bị ẩn */
+  }

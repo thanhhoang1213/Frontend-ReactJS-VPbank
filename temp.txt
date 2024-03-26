@@ -1,0 +1,113 @@
+ {/* Start Single Slider */}
+            <SwiperSlide
+              className="single-slider"
+              id="slider2"
+              style={{ backgroundImage: 'url("img/slider2.jpg")' }}
+            >
+              <div className="container">
+                <div className="row">
+                  <div className="col-lg-7">
+                    <div className="text">
+                      <h1>
+                        We Provide <span>Data Services</span> That You Can <span>Trust!</span>
+                      </h1>
+                      <p>
+                        Develop strategy to deepen the application of diagnostic &amp; predictive
+                        analytics across customer journey and business processes{" "}
+                      </p>
+                      <p>
+                        {" "}
+                        Phát triển chiến lược để tăng cường ứng dụng phân tích chẩn đoán và dự đoán
+                        trong hành trình của khách hàng và quy trình kinh doanh{" "}
+                      </p>
+                      <div className="button">
+                        <a href="#" className="btn">
+                          Khám phá ngay
+                        </a>
+                        <a href="#" className="btn">
+                          Liên hệ với chúng tôi
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </SwiperSlide>
+            <SwiperSlide
+              className="single-slider"
+              id="slider3"
+              style={{ backgroundImage: 'url("img/slider3.jpg")' }}
+            >
+              {/* Start End Slider */}
+              {/* Start Single Slider */}
+
+              <div className="container">
+                <div className="row">
+                  <div className="col-lg-7">
+                    <div className="text">
+                      <h1>
+                        We Provide <span>Data Services</span> That You Can <span>Trust!</span>
+                      </h1>
+                      <p>
+                        Develop group strategy and provide oversight on data and analytics practices
+                        across the ecosystem subsidiaries to drive economies of scale
+                      </p>
+                      <p>
+                        {" "}
+                        Phát triển chiến lược và cung cấp sự giám sát về thực hành dữ liệu và phân
+                        tích trên các công ty con trong hệ sinh thái để thúc đẩy tính kinh tế theo
+                        quy mô{" "}
+                      </p>
+                      <div className="button">
+                        <a href="#" className="btn">
+                          Khám phá ngay
+                        </a>
+                        <a href="#" className="btn">
+                          Liên hệ với chúng tôi
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  {/* End Single Slider */}
+                </div>
+              </div>
+            </SwiperSlide>
+            <SwiperSlide
+              className="single-slider"
+              id="slider3"
+              style={{ backgroundImage: 'url("img/slider3.jpg")' }}
+            >
+              {/* Start End Slider */}
+              {/* Start Single Slider */}
+
+              <div className="container">
+                <div className="row">
+                  <div className="col-lg-7">
+                    <div className="text">
+                      <h1>
+                        We Provide <span>Data Services</span> That You Can <span>Trust!</span>
+                      </h1>
+                      <p>
+                        Develop group strategy and provide oversight on data and analytics practices
+                        across the ecosystem subsidiaries to drive economies of scale
+                      </p>
+                      <p>
+                        {" "}
+                        Phát triển chiến lược và cung cấp sự giám sát về thực hành dữ liệu và phân
+                        tích trên các công ty con trong hệ sinh thái để thúc đẩy tính kinh tế theo
+                        quy mô{" "}
+                      </p>
+                      <div className="button">
+                        <a href="#" className="btn">
+                          Khám phá ngay
+                        </a>
+                        <a href="#" className="btn">
+                          Liên hệ với chúng tôi
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  {/* End Single Slider */}
+                </div>
+              </div>
+            </SwiperSlide>
