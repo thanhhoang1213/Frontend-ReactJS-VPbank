@@ -28,19 +28,20 @@ function AddEditContent() {
 
   useEffect(() => {
     if (!params?.id) return;
-
+    
     dispatch(fetchContentById(params.id)).then((t) => {
       if (t?.payload?.metadata) {
         const { metadata } = t.payload;
         setState((prev) => ({
           ...prev,
-          content: metadata.content,
           categoryName: metadata.categoryName,
-          summarizeContent: metadata.summarizeContent, // Cập nhật giá trị summarizeContent
+          content: metadata.content,
+          summarizeContent: metadata.summarizeContent,
+          contentParts: metadata.contentParts,
         }));
       }
     });
-
+  
     return () => {
       dispatch(contentActions.resetDataOne());
     };
@@ -57,15 +58,16 @@ function AddEditContent() {
     const data = {
       categoryName: state.categoryName,
       content: state.content,
-      summarizeContent: state.summarizeContent, // Thêm summarizeContent vào data gửi đi
-      contentParts: state.contentParts.map(part => ({
+      summarizeContent: state.summarizeContent,
+      contentParts: state.contentParts.map((part) => ({
         partNumber: part.partNumber,
-        partContent: part.partContent
-      }))
+        partContent: part.partContent,
+      })),
     };
   
-    if (dataOne) {
-      data.id = dataOne.id;
+    // Kiểm tra xem params.id có tồn tại không, nếu có gán id từ params.id
+    if (params.id) {
+      data.id = params.id;
     }
   
     dispatch(isEditMode ? fetchUpdateContent(data) : fetchAddContent(data)).then((t) => {

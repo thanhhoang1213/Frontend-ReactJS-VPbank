@@ -27,9 +27,21 @@ function CategoryDetailsPage() {
     <section className="contact-us section intro">
       <div className="container">
         <div className="inner-content">
-          <div className="body-text">
-            {dataOne ? <div dangerouslySetInnerHTML={{ __html: dataOne.content }} /> : null}
-          </div>
+          {dataOne ? (
+            <>
+              <h2>{dataOne.title}</h2>
+              <h3>{dataOne.categoryName}</h3>
+              <hr/>
+              <div dangerouslySetInnerHTML={{ __html: dataOne.content }} />
+              {dataOne.contentParts.map((part, index) => (
+                <div key={index} className="content-part">
+                  <hr/>
+                  <h3>Phần {index + 1}</h3>
+                  <div dangerouslySetInnerHTML={{ __html: part.partContent }} />
+                </div>
+              ))}
+            </>
+          ) : null}
         </div>
       </div>
     </section>
