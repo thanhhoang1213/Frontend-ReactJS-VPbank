@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, Link } from "react-router-dom";
 import { fetchContentBySlug } from "./../../features/content/contentThunk";
 import { useContent } from "./../../features/content/contentSlice";
+import "./ConNguoiPage.css";
 
 function CategoryDetailsPage() {
   const params = useParams();
@@ -30,16 +31,20 @@ function CategoryDetailsPage() {
           {dataOne ? (
             <>
               <h2>{dataOne.title}</h2>
-              <h3>{dataOne.categoryName}</h3>
-              <hr/>
-              <div dangerouslySetInnerHTML={{ __html: dataOne.content }} />
-              {dataOne.contentParts.map((part, index) => (
-                <div key={index} className="content-part">
-                  <hr/>
-                  <h3>Phần {index + 1}</h3>
-                  <div dangerouslySetInnerHTML={{ __html: part.partContent }} />
-                </div>
-              ))}
+              <h3 className="text-center">{dataOne.categoryName}</h3>
+              <hr />
+              <div className="content" dangerouslySetInnerHTML={{ __html: dataOne.content }} />
+              <div className="text-center">
+                {[...Array(dataOne.contentPartCount)].map((_, index) => (
+                  <Link
+                    key={index}
+                    to={`/contentId/${dataOne.id}/part/${index + 1}`}
+                    state={{ contentPartCount: dataOne.contentPartCount }} // Truyền contentPartCount qua props
+                  >
+                    <button className="btn btn-part mx-2">Phần {index + 1}</button>
+                  </Link>
+                ))}
+              </div>
             </>
           ) : null}
         </div>

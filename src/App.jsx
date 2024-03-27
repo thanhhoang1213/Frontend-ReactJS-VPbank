@@ -25,6 +25,7 @@ import HomePage from "./pages/HomePage";
 import LienHePage from "./pages/LienHePage";
 import LogInPage from "./pages/LogInPage";
 import RegisterPage from "./pages/RegisterPage";
+import ContentPartPage from "./pages/ContentPartPage/ContentPartPage";
 
 function App() {
   const { userId } = useAuth();
@@ -50,6 +51,7 @@ function App() {
 
           <Route path="gioi-thieu" element={<GioiThieuPage />} />
           <Route path="lien-he" element={<LienHePage />} />
+          <Route path="/contentId/:contentId/part/:partNumber" element={<ContentPartPage />} />
         </Route>
 
         <Route

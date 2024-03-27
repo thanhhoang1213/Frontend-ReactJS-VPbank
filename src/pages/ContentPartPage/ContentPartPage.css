@@ -1,0 +1,29 @@
+
+
+.content-part-page {
+    /* margin-top: 50px; 
+    margin-bottom: 50px;  */
+    margin: 50px 0;
+  }
+  
+  .content-part-page .content-part {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    margin: 0 auto;
+  }
+  
+  .content-part-page .content-part button {
+    margin-right: 10px;
+    text-align: center;
+  }
+
+  .content {
+    min-height: 200px;
+  }
+
+  .btn-part {
+    background-color: blue;
+  }
+  
